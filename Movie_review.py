@@ -4,15 +4,15 @@ from sklearn.feature_extraction.text import CountVectorizer
 from PIL import Image
 
 # Correct file paths for images
-inno = Image.open(r"C:\Users\RAGHAVENDRA KUMAR\OneDrive\Pictures\Screenshots\Inno.png")
+inno = Image.open("Inno.png")
 st.image(inno, use_column_width=True)
 st.title("South Indian Movie Reviews Classification")
-Telugu_logo = Image.open(r"C:\Users\RAGHAVENDRA KUMAR\Downloads\Telugu_movies.jpeg")
+Telugu_logo = Image.open("Telugu_movies.jpeg")
 st.image(Telugu_logo, caption='Email', use_column_width=True)
 
 # Load the pre-trained model and vectorizer
-model_path = r"C:\Users\RAGHAVENDRA KUMAR\ML\NLP\South Telugu Movies Reviews.pkl"
-vectorizer_path = r"C:\Users\RAGHAVENDRA KUMAR\ML\NLP\bow_vectorization.pkl"
+model_path = "South Telugu Movies Reviews.pkl"
+vectorizer_path = "bow_vectorization.pkl"
 
 with open(model_path, 'rb') as model_file:
     model = pickle.load(model_file)
@@ -30,14 +30,14 @@ if st.button("Submit"):
     
     if pred == 'negative':
         st.write("Boring")
-        neg_r = Image.open(r"C:\Users\RAGHAVENDRA KUMAR\Downloads\boring.jpg")
+        neg_r = Image.open("boring.jpg")
         st.image(neg_r, use_column_width=False)
         
         # List of top 5 boring movies and their image paths
         boring_movies = [
-            ("Liger", r"C:\Users\RAGHAVENDRA KUMAR\Downloads\Liger.jpg"),
-            ("Bramhostavam", r"C:\Users\RAGHAVENDRA KUMAR\Downloads\Bramhostavam.jpg"),
-            ("VVR",r"C:\Users\RAGHAVENDRA KUMAR\Downloads\VVR.jpg")
+            ("Liger", "Liger.jpg"),
+            ("Bramhostavam", "Bramhostavam.jpg"),
+            ("VVR","VVR.jpg")
         ]
         
         st.write("Boring Movies")
@@ -47,16 +47,16 @@ if st.button("Submit"):
             st.image(movie_image, use_column_width=True)
     else:
         st.write("Blockbuster")
-        pos_r = Image.open(r"C:\Users\RAGHAVENDRA KUMAR\Downloads\Five_star.jpg")
+        pos_r = Image.open("Five_star.jpg")
         st.image(pos_r, use_column_width=False)
 
         # List of top 5 blockbuster movies and their image paths
         top_movies = [
-            ("RRR", r"C:\Users\RAGHAVENDRA KUMAR\Downloads\RRR.jpeg"),
-            ("Bahubali", r"C:\Users\RAGHAVENDRA KUMAR\Downloads\Bahubali.jpeg"),
-            ("KGF", r"C:\Users\RAGHAVENDRA KUMAR\Downloads\KGF.jpeg"),
-            ("Kalki", r"C:\Users\RAGHAVENDRA KUMAR\Downloads\Kalki.jpeg"),
-            ("Pushpa", r"C:\Users\RAGHAVENDRA KUMAR\Downloads\Pushpa.jpeg")
+            ("RRR", "RRR.jpeg"),
+            ("Bahubali", "Bahubali.jpeg"),
+            ("KGF", "KGF.jpeg"),
+            ("Kalki", "Kalki.jpeg"),
+            ("Pushpa", "Pushpa.jpeg")
         ]
 
         # Display the top 5 blockbuster movies with images
